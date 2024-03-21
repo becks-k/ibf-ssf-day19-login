@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Login Page</title>
+	</head>
+	<body>
+
+		<h1>Login</h1>
+
+		<form method="POST" action="/">
+			<table>
+				<tr>
+					<td>Username: </td>
+					<td> <input type="text" size="30" name="username" required> </td>
+				</tr>
+				<tr>
+					<td>Password: </td>
+					<td> <input type="password" size="30" name="password" required> </td>
+				</tr>
+				<tr th:if="${hasCaptcha}">
+					<td>Captcha: </td>
+					<td> 
+						<div>
+							<h5>Please complete the following captcha</h5>
+							<span th:text="${a}">number0</span> + <span th:text="${b}">number1</span> = <input type="number" name="value">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td> <button type="submit">Login</button> </td>
+				</tr>
+			</table>
+
+		</form>
+
+		<div>
+			<h4 >You have <span th:text="${loginCount}"></span> more attempts</h4>
+		</div>
+
+		
+	</body>
+</html>
